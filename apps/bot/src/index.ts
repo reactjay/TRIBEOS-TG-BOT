@@ -58,6 +58,7 @@ bot.catch((err) => {
 });
 
 async function main() {
+  console.log("Configured DASHBOARD_URL:", DASHBOARD_URL);
   await setupBotCommands(bot);
   const sweeper = startExpirySweeper(bot);
 
