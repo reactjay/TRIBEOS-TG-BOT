@@ -1,7 +1,7 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { Plus, Users, Share2, Trophy, Activity } from "lucide-react";
+import { Plus, Users, Share2, Trophy, Activity, Flame, UserCheck, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -65,53 +65,60 @@ export default async function DashboardPage() {
   });
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">
+    <div className="p-4 md:p-8 max-w-7xl mx-auto">
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
           Welcome back, {session.user.name?.split(" ")[0] ?? "there"}
         </h1>
-        <p className="text-zinc-400 mt-1">
+        <p className="text-zinc-400 text-sm mt-1">
           Here&apos;s what&apos;s happening across your communities.
         </p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription>Communities</CardDescription>
-            <CardTitle className="text-3xl">{groupAdmins.length}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-xs text-zinc-500">Total managed groups</p>
-          </CardContent>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8">
+        <Card className="p-4 sm:p-5 hover:border-zinc-700 transition-colors">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-medium text-zinc-400">Communities</span>
+            <div className="h-7 w-7 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center">
+              <Users className="h-3.5 w-3.5" />
+            </div>
+          </div>
+          <p className="text-2xl sm:text-3xl font-bold text-white mb-0.5">{groupAdmins.length}</p>
+          <p className="text-[11px] text-zinc-500">Total managed groups</p>
         </Card>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription>Active Campaigns</CardDescription>
-            <CardTitle className="text-3xl">{activeCampaigns}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-xs text-zinc-500">Running right now</p>
-          </CardContent>
+
+        <Card className="p-4 sm:p-5 hover:border-zinc-700 transition-colors">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-medium text-zinc-400">Active Campaigns</span>
+            <div className="h-7 w-7 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center">
+              <Flame className="h-3.5 w-3.5" />
+            </div>
+          </div>
+          <p className="text-2xl sm:text-3xl font-bold text-white mb-0.5">{activeCampaigns}</p>
+          <p className="text-[11px] text-zinc-500">Running right now</p>
         </Card>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription>Participants</CardDescription>
-            <CardTitle className="text-3xl">{totalParticipants}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-xs text-zinc-500">Across all campaigns</p>
-          </CardContent>
+
+        <Card className="p-4 sm:p-5 hover:border-zinc-700 transition-colors">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-medium text-zinc-400">Participants</span>
+            <div className="h-7 w-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+              <UserCheck className="h-3.5 w-3.5" />
+            </div>
+          </div>
+          <p className="text-2xl sm:text-3xl font-bold text-white mb-0.5">{totalParticipants}</p>
+          <p className="text-[11px] text-zinc-500">Across all campaigns</p>
         </Card>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription>Qualified Referrals</CardDescription>
-            <CardTitle className="text-3xl">{totalReferrals}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-xs text-zinc-500">Verified referrals</p>
-          </CardContent>
+
+        <Card className="p-4 sm:p-5 hover:border-zinc-700 transition-colors">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-medium text-zinc-400">Qualified Referrals</span>
+            <div className="h-7 w-7 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+              <TrendingUp className="h-3.5 w-3.5" />
+            </div>
+          </div>
+          <p className="text-2xl sm:text-3xl font-bold text-white mb-0.5">{totalReferrals}</p>
+          <p className="text-[11px] text-zinc-500">Verified referrals</p>
         </Card>
       </div>
 

@@ -93,55 +93,55 @@ export function NewGroupClient() {
   }, [step, challenge?.code]);
 
   return (
-    <div className="p-8 max-w-2xl">
+    <div className="p-4 md:p-8 max-w-2xl mx-auto">
       <Link
         href="/dashboard/groups"
-        className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white mb-8"
+        className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white mb-6 transition-colors"
       >
         <ArrowLeft className="h-4 w-4" /> Back to Communities
       </Link>
 
-      <h1 className="text-2xl font-bold text-white mb-2">Link a Community</h1>
-      <p className="text-zinc-400 mb-8">
+      <h1 className="text-2xl font-bold text-white mb-2 tracking-tight">Link a Community</h1>
+      <p className="text-zinc-400 text-sm mb-6">
         Connect your Telegram group to TribeOS to start tracking referrals and managing modules.
       </p>
 
       {step === "intro" && (
         <div className="space-y-4">
           <Card>
-            <CardHeader>
-              <CardTitle>How linking works</CardTitle>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg">How linking works</CardTitle>
               <CardDescription>Follow these 3 easy steps to link your community.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex gap-4 items-start">
-                <div className="h-8 w-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-sm font-bold shrink-0">1</div>
+            <CardContent className="space-y-5">
+              <div className="flex gap-3.5 items-start">
+                <div className="h-8 w-8 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30 flex items-center justify-center text-sm font-bold shrink-0">1</div>
                 <div>
                   <p className="text-sm font-medium text-zinc-200">Add @{fallbackBotUsername} as an Admin</p>
-                  <p className="text-sm text-zinc-500 mt-1">Make sure the bot has admin rights to invite users and send messages.</p>
+                  <p className="text-xs text-zinc-400 mt-1 leading-relaxed">Make sure the bot has admin rights to invite users and send messages.</p>
                   <a
                     href={`https://t.me/${fallbackBotUsername}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 mt-2 text-sm text-orange-400 hover:text-orange-300"
+                    className="inline-flex items-center gap-1.5 mt-2 text-xs font-medium text-orange-400 hover:text-orange-300 transition-colors"
                   >
-                    <Bot className="h-4 w-4" /> Open @{fallbackBotUsername}
+                    <Bot className="h-3.5 w-3.5" /> Open @{fallbackBotUsername}
                     <ExternalLink className="h-3 w-3" />
                   </a>
                 </div>
               </div>
-              <div className="flex gap-4 items-start">
-                <div className="h-8 w-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-sm font-bold shrink-0">2</div>
+              <div className="flex gap-3.5 items-start">
+                <div className="h-8 w-8 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30 flex items-center justify-center text-sm font-bold shrink-0">2</div>
                 <div>
                   <p className="text-sm font-medium text-zinc-200">Generate a one-time verification command</p>
-                  <p className="text-sm text-zinc-500 mt-1">Generates a unique security code proving group ownership.</p>
+                  <p className="text-xs text-zinc-400 mt-1 leading-relaxed">Generates a unique security code proving group ownership.</p>
                 </div>
               </div>
-              <div className="flex gap-4 items-start">
-                <div className="h-8 w-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center text-sm font-bold shrink-0">3</div>
+              <div className="flex gap-3.5 items-start">
+                <div className="h-8 w-8 rounded-full bg-orange-500/15 text-orange-400 border border-orange-500/30 flex items-center justify-center text-sm font-bold shrink-0">3</div>
                 <div>
                   <p className="text-sm font-medium text-zinc-200">Send command or tap Add Bot</p>
-                  <p className="text-sm text-zinc-500 mt-1">The bot verifies your ownership and links the group automatically.</p>
+                  <p className="text-xs text-zinc-400 mt-1 leading-relaxed">The bot verifies your ownership and links the group automatically.</p>
                 </div>
               </div>
             </CardContent>
